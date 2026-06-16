@@ -15,8 +15,8 @@ func main() {
 		http.ServeFile(w, r, "index.html")
 	})
 
-	fmt.Println("Server starting at http://localhost:8080")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	fmt.Println("Server starting at http://localhost:80")
+	if err := http.ListenAndServe(":80", nil); err != nil {
 		panic(err)
 	}
 
