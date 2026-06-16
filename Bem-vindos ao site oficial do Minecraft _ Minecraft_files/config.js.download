@@ -1,0 +1,649 @@
+window.mcConfig = {
+	exp: {
+		dev: {
+			mcNet: {
+				getFlightAssignment: false,
+				configBaseUrl: 'https://mc-dev.minecraft.net'
+			},
+			mcHelp: {
+				getFlightAssignment: false,
+				configBaseUrl: 'https://help-dev.minecraft.net'
+			},
+			getFlightAssignment: false,
+			configBaseUrl: 'https://mc-dev.minecraft.net',
+			serviceUrl: 'https://net-secondary.dev-325496ed.web.minecraft-services.net/'
+		},
+		stage: {
+			mcNet: {
+				getFlightAssignment: true,
+				configBaseUrl: 'https://mc-stage.minecraft.net'
+			},
+			mcHelp: {
+				getFlightAssignment: false,
+				configBaseUrl: ''
+			},
+			getFlightAssignment: true,
+			configBaseUrl: 'https://mc-stage.minecraft.net',
+			serviceUrl: 'https://net-secondary.stage-732c232f.web.minecraft-services.net/'
+		},
+		preview: {
+			mcNet: {
+				getFlightAssignment: true,
+				configBaseUrl: 'https://preview.minecraft.net'
+			},
+			mcHelp: {
+				getFlightAssignment: true,
+				configBaseUrl: 'https://help-ppe.minecraft.net'
+			},
+			getFlightAssignment: true,
+			configBaseUrl: 'https://preview.minecraft.net',
+			serviceUrl: 'https://net-secondary.web.minecraft-services.net/'
+		},
+		prod: {
+			mcNet: {
+				getFlightAssignment: true,
+				configBaseUrl: 'https://www.minecraft.net'
+			},
+			mcHelp: {
+				getFlightAssignment: true,
+				configBaseUrl: 'https://help.minecraft.net'
+			},
+			getFlightAssignment: true,
+			configBaseUrl: 'https://www.minecraft.net',
+			serviceUrl: 'https://net-secondary.web.minecraft-services.net/'
+		}
+	},
+	embargo: {
+		games: {
+			purchase: [
+				{
+					productGroups: ['Minecraft'],
+					productIds: [],
+					locales: ['CN']
+				}
+			],
+			gift: [
+				{
+					productGroups: ['Minecraft', 'Dungeons', 'Legends'],
+					productIds: [],
+					locales: ['BR', 'EG', 'TR', 'AR', 'NG', 'ZA', 'CN']
+				}
+			]
+		}
+	},
+	releases: {
+		'1309538': [], // Direct to SISU
+		'1352821': ['dev', 'stage', 'preview', 'prod'], // Marketplace friendly URLs
+		'1411607': ['dev', 'stage', 'preview', 'prod'], // Get item popup
+		'1399461': ['dev', 'stage', 'preview', 'prod'], // Playable on
+		'1419232': ['dev', 'stage', 'preview', 'prod'], // Exp flight bucketing
+		'1397597': ['dev', 'stage', 'preview', 'prod'], // resultGroupA filtering
+		'1388494': ['dev', 'stage', 'preview', 'prod'], // minecoin spend
+		'1477416': ['dev', 'stage', 'preview', 'prod'], // minecoin promotion - mediaBlockF
+		'1527621': ['dev', 'stage', 'preview', 'prod'], // youtube cookie compliance
+		'1525543': ['dev', 'stage', 'preview', 'prod'], // Marketplace regional pricing
+		'1562480': ['dev', 'stage', 'preview'], // Marketplace Hero D
+		'1591240': ['dev', 'stage'], // Sitewide regional pricing
+		'1450485': ['dev', 'stage', 'preview'] // Vibrant Visuals Required 
+	},
+	flights: { //All flight Ids should be lowercase!
+		'marketplaceResultGroupAFilters': {
+			'flightId': '1429425t1',
+			'targetRegex': '/marketplace/category/|/marketplace/creator/',
+			'targetLocales': ['en-us'],
+			'isEnabled': false
+		},
+		'newsResultGroupAFilters': {
+			'flightId': '1429444t1',
+			'targetRegex': '/articles',
+			'targetLocales': ['en-us'],
+			'isEnabled': false
+		},
+		'minecoinSpend': {
+			'flightId': '1458817t1',
+			'targetRegex': '/marketplace/pdp/',
+			'targetLocales': ['en-us'],
+			'isEnabled': false
+		},
+		'marketplaceMediaBlockF': {
+			'flightId': '1511349t1',
+			'targetRegex': '^/(..-(?:[a-zA-Z]{4}|[a-zA-Z]{3}|[a-zA-Z]{2}))/?$', // homepage regex
+			'targetLocales': ['en-us'],
+			'isEnabled': false
+		},
+		'youTubeCookieCompliance': {
+			'flightId': '1527621t1',
+			'targetRegex': '/marketplace/pdp/|^/(..-(?:[a-zA-Z]{4}|[a-zA-Z]{3}|[a-zA-Z]{2}))/?$|/updates/|/vibrant-visuals-update|/minecraft-movie',
+			'targetLocales': ['en-us'],
+			'isEnabled': false
+		},
+		'regionalPricing': {
+			'flightId': '1537205t1',
+			'targetRegex': '/marketplace/pdp/|/marketplace/buy-minecoins',
+			'targetLocales': ['en-us'],
+			'isEnabled': false
+		},
+		'pdpRegionalPricing': {
+			'flightId': '1498074ft1',
+			'targetRegex': '/store/minecraft-java-bedrock-edition-pc|/store/minecraft-deluxe-collection-pc',
+			'targetLocales': ['en-us'],
+			'isEnabled': false
+		},
+		'marketplaceHeroD': {
+			'flightId': '1384945t1',
+			'targetRegex': '/marketplace$',
+			'targetLocales': ['en-us'],
+			'isEnabled': true
+		},
+		'sitewideRegionalPricing': {
+			'flightId': '1598659t1',
+			'targetRegex': '.*',
+			'targetLocales': ['en-us'],
+			'isEnabled': true
+		},
+		'vibrantVisualsRequired': {
+			'flightId': '1556663t1',
+			'targetRegex': '/marketplace/pdp/',
+			'targetLocales': ['en-us'],
+			'isEnabled': true
+		},
+	},
+	products: {
+		'Minecraft': {
+			'9NQGKTXR9BZF': {
+				'productName': 'Deluxe Collection Bundle',
+				'entitlement': {
+					'key': 'one_vanilla_deluxe_collection_bundle'
+				}
+			},
+			'9NXP44L49SHJ': {
+				'productName': 'Standard',
+				'entitlement': {
+					'key': 'minecraft_bedrock'
+				}
+			},
+			'9N57DRSG4HNZ': {
+				'productName': 'Deluxe Bundle',
+				'entitlement': {
+					'key': 'one_vanilla_deluxe_collection_v2_bundle'
+				},
+				'matchCriteria': {
+					'url': [
+						{
+							'type': 'exclude',
+							'pattern': '-jp$'
+						}
+					]
+				}
+			},
+			'9P3SVTXCTN2B': {
+				'productName': 'JP Deluxe Bundle',
+				'entitlement': {
+					'key': 'one_vanilla_deluxe_collection_v2_bundle'
+				},
+				'matchCriteria': {
+					'url': [
+						{
+							'type': 'include',
+							'pattern': '-jp$'
+						}
+					]
+				}
+			},
+			'9NKHWG572L31': {
+				'productName': 'Ultimate Bundle',
+				'entitlement': {
+					'key': 'one_vanilla_ultimate_collection_bundle'
+				},
+				'matchCriteria': {
+					'url': [
+						{
+							'type': 'exclude',
+							'pattern': '-jp$'
+						}
+					]
+				}
+			},
+			'9PGB0GVNT4HJ': {
+				'productName': 'JP Ultimate Bundle',
+				'entitlement': {
+					'key': 'one_vanilla_ultimate_collection_bundle'
+				},
+				'matchCriteria': {
+					'url': [
+						{
+							'type': 'include',
+							'pattern': '-jp$'
+						}
+					]
+				}
+			}
+		},
+		'Dungeons': {
+			'9NZ12RV7B7R3': {
+				'productName': 'Ultimate Edition',
+				'entitlement': {
+					'key': 'dungeons_ultimate_edition'
+				}
+			},
+			'9NB6BVL3MTG4': {
+				'productName': 'Standard Edition',
+				'entitlement': {
+					'key': 'dungeons'
+				}
+			},
+			'9N5KX36SQJ9Q': {
+				'productName': 'Ultimate Edition Bundle',
+				'entitlement': {
+					'key': 'dungeons_ultimate_dlc_bundle'
+				}
+			},
+			'9PKCNQ57B2JG': {
+				'productName': 'Echoing Void',
+				'entitlement': {
+					'key': 'dungeons_dlc_6'
+				}
+			},
+			'9P427LFN9KCD': {
+				'productName': 'Hidden Depths',
+				'entitlement': {
+					'key': 'dungeons_dlc_5'
+				}
+			},
+			'9P5JQ1XPRGN6': {
+				'productName': 'Flames Of The Nether',
+				'entitlement': {
+					'key': 'dungeons_dlc_4'
+				}
+			},
+			'9N6184JJ7NSG': {
+				'productName': 'Howling Peaks',
+				'entitlement': {
+					'key': 'dungeons_dlc_3'
+				}
+			},
+			'9P4HCS6S5C2K': {
+				'productName': 'Creeping Winter',
+				'entitlement': {
+					'key': 'dungeons_dlc_2'
+				}
+			},
+			'9NGG3CWJMC7V': {
+				'productName': 'Jungle Awakens',
+				'entitlement': {
+					'key': 'dungeons_dlc_1'
+				}
+			},
+			'9PBP71DDVCT9': {
+				'productName': 'Cloudy Climb',
+				'entitlement': {
+					'key': 'dungeons_adventure_pass_season_1'
+				}
+			},
+			'9P1XF6ZQGV3R': {
+				'productName': 'Luminous Night',
+				'entitlement': {
+					'key': 'dungeons_adventure_pass_season_2'
+				}
+			},
+			'9PB1LJZFN9XK': {
+				'productName': 'Fauna Faire',
+				'entitlement': {
+					'key': 'dungeons_adventure_pass_season_3'
+				}
+			}
+		},
+		'Legends': {
+			'9MV69L4JSD31': {
+				'productName': 'Deluxe',
+				'entitlement': {
+					'key': 'legends_deluxe_bundle'
+				}
+			},
+			'9NM395CH685J': {
+				'productName': 'Standard',
+				'entitlement': {
+					'key': 'legends'
+				}
+			},
+			'9MV1BF8J0TTX': {
+				'productName': 'Skin Pack',
+				'entitlement': {
+					'key': 'legends_dlc_deluxe_skins'
+				}
+			}
+		},
+		'Bundles': {
+			'9P3DH50CL5HW': {
+				'productName': 'Triple Bundle',
+				'entitlement': {
+					'key': 'minecraft_triple_bundle'
+				},
+				'matchCriteria': {
+					'url': [
+						{
+							'type': 'exclude',
+							'pattern': '-jp$'
+						}
+					]
+				}
+			},
+			'9NSHS46HSVS8': {
+				'productName': 'JP Triple Bundle',
+				'entitlement': {
+					'key': 'minecraft_triple_bundle'
+				},
+				'matchCriteria': {
+					'url': [
+						{
+							'type': 'include',
+							'pattern': '-jp$'
+						}
+					]
+				}
+			}
+		},
+		'Minecoins': {
+			'9PB7LFS57G9H': {
+				'productName': 'Coin_160',
+				'details': {
+					'value': 160
+				}
+			},
+			'9NHGX9G9JF1X': {
+				'productName': 'Coin_320',
+				'details': {
+					'value': 320
+				}
+			},
+			'9N775SDWXP16': {
+				'productName': 'Coin_510',
+				'details': {
+					'value': 510
+				}
+			},
+			'9P3VJ3V5M2CJ': {
+				'productName': 'Coin_680',
+				'details': {
+					'value': 680
+				}
+			},
+			'9P99T94BKFQJ': {
+				'productName': 'Coin_850',
+				'details': {
+					'value': 850
+				}
+			},
+			'9PD3R529P5XZ': {
+				'productName': 'Coin_1020',
+				'details': {
+					'value': 1020
+				}
+			},
+			'9MZJ3BK78HL8': {
+				'productName': 'Coin_1200',
+				'details': {
+					'value': 1200
+				}
+			},
+			'9N08WNFPR6VL': {
+				'productName': 'Coin_1370',
+				'details': {
+					'value': 1370
+				}
+			},
+			'9P4QR54B9NJK': {
+				'productName': 'Coin_1540',
+				'details': {
+					'value': 1540
+				}
+			},
+			'9P063P6X637H': {
+				'productName': 'Coin_1720',
+				'details': {
+					'value': 1720
+				}
+			},
+			'9NWG528PMSWZ': {
+				'productName': 'Coin_1900',
+				'details': {
+					'value': 1900
+				}
+			},
+			'9NTW937KZF1S': {
+				'productName': 'Coin_2070',
+				'details': {
+					'value': 2070
+				}
+			},
+			'9NZHNGN2X7HD': {
+				'productName': 'Coin_2250',
+				'details': {
+					'value': 2250
+				}
+			},
+			'9NDT7TBWP249': {
+				'productName': 'Coin_2430',
+				'details': {
+					'value': 2430
+				}
+			},
+			'9MXMKZSKMSS9': {
+				'productName': 'Coin_2610',
+				'details': {
+					'value': 2610
+				}
+			},
+			'9P9NZBLX5XD6': {
+				'productName': 'Coin_2780',
+				'details': {
+					'value': 2780
+				}
+			},
+			'9P9SFZ7XDFMJ': {
+				'productName': 'Coin_2960',
+				'details': {
+					'value': 2960
+				}
+			},
+			'9N0BB7V30636': {
+				'productName': 'Coin_3140',
+				'details': {
+					'value': 3140
+				}
+			},
+			'9PC2T34ZJ10W': {
+				'productName': 'Coin_3320',
+				'details': {
+					'value': 3320
+				}
+			},
+			'9P2XG2G6PPRC': {
+				'productName': 'Coin_3500',
+				'details': {
+					'value': 3500
+				}
+			},
+			'9P75RG460Z9S': {
+				'productName': 'Coin_3680',
+				'details': {
+					'value': 3680
+				}
+			},
+			'9NRZKN14V5JJ': {
+				'productName': 'Coin_3850',
+				'details': {
+					'value': 3850
+				}
+			},
+			'9P32JPGBVC0B': {
+				'productName': 'Coin_4030',
+				'details': {
+					'value': 4030
+				}
+			},
+			'9N077C6VCC05': {
+				'productName': 'Coin_4200',
+				'details': {
+					'value': 4200
+				}
+			},
+			'9NFTJNMXK11S': {
+				'productName': 'Coin_4380',
+				'details': {
+					'value': 4380
+				}
+			},
+			'9P20K98HNF0R': {
+				'productName': 'Coin_4550',
+				'details': {
+					'value': 4550
+				}
+			},
+			'9P2G103MSHX1': {
+				'productName': 'Coin_4730',
+				'details': {
+					'value': 4730
+				}
+			},
+			'9PKBVTH4HGT4': {
+				'productName': 'Coin_4900',
+				'details': {
+					'value': 4900
+				}
+			},
+			'9PFP9CGSVWFS': {
+				'productName': 'Coin_5080',
+				'details': {
+					'value': 5080
+				}
+			},
+			'9NTRLT7DPB2H': {
+				'productName': 'Coin_5250',
+				'details': {
+					'value': 5250
+				}
+			},
+			'9P8VXGM808JD': {
+				'productName': 'Coin_5430',
+				'details': {
+					'value': 5430
+				}
+			},
+			'9NVRV23X39GT': {
+				'productName': 'Coin_5600',
+				'details': {
+					'value': 5600
+				}
+			},
+			'9NQ0L323LCV0': {
+				'productName': 'Coin_5780',
+				'details': {
+					'value': 5780
+				}
+			},
+			'9PNVQ1JDPFCS': {
+				'productName': 'Coin_5950',
+				'details': {
+					'value': 5950
+				}
+			},
+			'9PJ5V2N54SVZ': {
+				'productName': 'Coin_6130',
+				'details': {
+					'value': 6130
+				}
+			},
+			'9PJ7XT0PHGWK': {
+				'productName': 'Coin_6300',
+				'details': {
+					'value': 6300
+				}
+			},
+			'9N3RV917K2RG': {
+				'productName': 'Coin_6480',
+				'details': {
+					'value': 6480
+				}
+			},
+			'9MSZP0B4RHTM': {
+				'productName': 'Coin_6650',
+				'details': {
+					'value': 6650
+				}
+			},
+			'9NBMFGDX8QFM': {
+				'productName': 'Coin_6830',
+				'details': {
+					'value': 6830
+				}
+			},
+			'9N822VCQ2XFZ': {
+				'productName': 'Coin_7000',
+				'details': {
+					'value': 7000
+				}
+			},
+			'9MZW6637S1C4': {
+				'productName': 'Coin_7180',
+				'details': {
+					'value': 7180
+				}
+			},
+			'9NRS2RQ5QF63': {
+				'productName': 'Coin_7350',
+				'details': {
+					'value': 7350
+				}
+			},
+			'9P715Q0LW86V': {
+				'productName': 'Coin_7530',
+				'details': {
+					'value': 7530
+				}
+			},
+			'9N8QX3D7XT0Q': {
+				'productName': 'Coin_7700',
+				'details': {
+					'value': 7700
+				}
+			},
+			'9PN75C2JTHT5': {
+				'productName': 'Coin_7880',
+				'details': {
+					'value': 7880
+				}
+			},
+			'9P7QLJSBD35B': {
+				'productName': 'Coin_8050',
+				'details': {
+					'value': 8050
+				}
+			},
+			'9MXM6ZVD031W': {
+				'productName': 'Coin_8230',
+				'details': {
+					'value': 8230
+				}
+			},
+			'9P8M1KSTCF69': {
+				'productName': 'Coin_8400',
+				'details': {
+					'value': 8400
+				}
+			},
+			'9P2WNV39ZHQ5': {
+				'productName': 'Coin_8580',
+				'details': {
+					'value': 8580
+				}
+			},
+			'9NJSBHH6FVRF': {
+				'productName': 'Coin_8800',
+				'details': {
+					'value': 8800
+				}
+			}
+		}
+	}
+};
